@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { supabase } = require("../supabase");
+const { supabase } = require("./supabase");
 
 router.post("/login", async (req, res) => {
   try {
