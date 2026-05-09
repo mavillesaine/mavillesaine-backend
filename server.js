@@ -39,6 +39,7 @@ const supabase = createClient(
 
 // ── Middlewares ───────────────────────────────────────────────
 app.use(helmet());
+app.set('trust proxy', 1); // Nécessaire pour Render (reverse proxy)
 app.use(cors({ origin: "*", methods: ["GET","POST","PUT","PATCH","DELETE"] }));
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
