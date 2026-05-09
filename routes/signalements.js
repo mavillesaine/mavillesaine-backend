@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
-const { supabase } = require("../server");
-
+const { supabase } = require("./supabase");
 router.post("/", async (req, res) => {
   try {
     const { commune_id, adresse, latitude, longitude, categorie, description, photo_detail_url, photo_large_url, urgence, fcm_token } = req.body;
