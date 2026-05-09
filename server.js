@@ -24,7 +24,6 @@ const helmet       = require("helmet");
 const morgan       = require("morgan");
 const rateLimit    = require("express-rate-limit");
 const dotenv       = require("dotenv");
-const { createClient } = require("@supabase/supabase-js");
 
 dotenv.config();
 
@@ -32,10 +31,7 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 
 // ── Supabase client ───────────────────────────────────────────
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
-);
+const { supabase } = require("./routes/supabase");
 
 // ── Middlewares ───────────────────────────────────────────────
 app.use(helmet());
@@ -91,4 +87,4 @@ app.listen(PORT, () => {
   console.log(`🔗 Health check : http://localhost:${PORT}/health`);
 });
 
-module.exports = { app, supabase };
+module.exports = { app };
