@@ -62,6 +62,7 @@ app.use("/api/signalements",  signalementsLimiter, require("./routes/signalement
 app.use("/api/techniciens",   require("./routes/techniciens"));
 app.use("/api/interventions", require("./routes/interventions"));
 app.use("/api/stats",         require("./routes/stats"));
+app.use("/api/superviseurs", require("./routes/superviseurs"));
 
 // ── Health check ──────────────────────────────────────────────
 app.get("/health", (req, res) => {
