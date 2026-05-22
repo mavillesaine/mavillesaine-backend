@@ -52,7 +52,8 @@ app.use(rateLimit({
 const signalementsLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1h
   max: 10,
-  message: { error: "Maximum 10 signalements par heure par IP." }
+  message: { error: "Maximum 10 signalements par heure par IP." },
+  skip: (req) => req.method !== "POST" // limiter uniquement la création
 });
 
 // ── Routes ────────────────────────────────────────────────────
